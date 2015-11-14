@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanhandava.Web", "Avanhandava\Avanhandava.Web.csproj", "{4C865A08-79E8-424D-A5A0-7032ECC98C98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanhandava.Domain", "Avanhandava.Domain\Avanhandava.Domain.csproj", "{B681C220-E759-4ECC-A811-C39A76732529}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanhandava.Web.Tests", "Avanhandava.Tests\Avanhandava.Web.Tests.csproj", "{39DB6B1D-1AF3-4A8B-9679-A7B52DBD60F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C865A08-79E8-424D-A5A0-7032ECC98C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C865A08-79E8-424D-A5A0-7032ECC98C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C865A08-79E8-424D-A5A0-7032ECC98C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C865A08-79E8-424D-A5A0-7032ECC98C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B681C220-E759-4ECC-A811-C39A76732529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B681C220-E759-4ECC-A811-C39A76732529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B681C220-E759-4ECC-A811-C39A76732529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B681C220-E759-4ECC-A811-C39A76732529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DB6B1D-1AF3-4A8B-9679-A7B52DBD60F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DB6B1D-1AF3-4A8B-9679-A7B52DBD60F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DB6B1D-1AF3-4A8B-9679-A7B52DBD60F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DB6B1D-1AF3-4A8B-9679-A7B52DBD60F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
