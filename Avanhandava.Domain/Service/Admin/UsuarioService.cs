@@ -156,8 +156,7 @@ namespace Avanhandava.Domain.Service.Admin
         private void EnviarNovaSenha(Usuario usuario, string mensagem)
         {
             var email = new Email.EnviarEmail();
-            // TODO: assunto deve conter o nome do app
-            email.Enviar(usuario.Nome, usuario.Email, "Nova senha para acesso", mensagem.ToString());
+            email.Enviar(usuario.Nome, usuario.Email, "Avanhandava - nova senha para acesso", mensagem.ToString());
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Avanhandava.Domain.Abstract;
 using Avanhandava.Domain.Models.Admin;
 using Avanhandava.Domain.Service.Admin;
+using Avanhandava.Domain.Abstract.Admin;
 
 namespace Avanhandava.App_Start
 {
@@ -19,8 +20,17 @@ namespace Avanhandava.App_Start
             IKernel kernel = new StandardKernel();
 
             // mapeamento - interfaces x classes
+            kernel.Bind<IBaseService<Conta>>().To<ContaService>();
+            kernel.Bind<IBaseService<Empresa>>().To<EmpresaService>();
+            kernel.Bind<IBaseService<Estado>>().To<EstadoService>();
+            kernel.Bind<IBaseService<Fornecedor>>().To<FornecedorService>();
+            kernel.Bind<IBaseService<FPgto>>().To<FPgtoService>();
+            kernel.Bind<IBaseService<GrupoCusto>>().To<GrupoCustoService>();
+            kernel.Bind<IBaseService<ItemCusto>>().To<ItemCustoService>();
+            kernel.Bind<IBaseService<Pgto>>().To<PgtoService>();
             kernel.Bind<IBaseService<SistemaParametro>>().To<SistemaParametroService>();
             kernel.Bind<IBaseService<Usuario>>().To<UsuarioService>();
+            kernel.Bind<ILogin>().To<UsuarioService>();
 
             // registro do container
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));

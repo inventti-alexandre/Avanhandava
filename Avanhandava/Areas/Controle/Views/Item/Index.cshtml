@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Avanhandava.Domain.Models.Admin.ItemCusto>
+
+@{
+    ViewBag.Title = "Ítens de custo";
+}
+
+<h2>Ítens de custo: @ViewBag.GrupoCusto</h2>
+
+<p>
+    @Html.ActionLink("Novo ítem", "Incluir", new { idGrupoCusto = ViewBag.IdGrupoCusto })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlteradoPor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlteradoEm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlteradoPor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlteradoEm)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "GrupoCusto")
+</div>
+

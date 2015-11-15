@@ -1,0 +1,113 @@
+﻿@model Avanhandava.Domain.Models.Admin.Conta
+
+@{
+    ViewBag.Title = "Conta";
+}
+
+<h2>Conta - inclusão: @Model.Empresa.Fantasia</h2>
+
+<div class="alert alert-danger">
+    <h4>Confirma a exclusão desta conta?</h4>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BancoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BancoNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BancoNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BancoNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BancoAgencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BancoAgencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BancoConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BancoConta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaldoAnterior)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaldoAnterior)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaldoAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaldoAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaldoData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaldoData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoEm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlteradoEm)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index", new { idEmpresa = Model.IdEmpresa })
+        </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Avanhandava.Domain.Models.Admin.Conta>
+
+@{
+    ViewBag.Title = "Contas";
+}
+
+<h2>Contas: @ViewBag.Fantasia</h2>
+
+<p>
+    @Html.ActionLink("Nova conta", "Incluir", new { idEmpresa = ViewBag.IdEmpresa })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BancoNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BancoAgencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BancoConta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoAnterior)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoAtual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaldoData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BancoNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BancoAgencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BancoConta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoAnterior)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoAtual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaldoData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ativo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Empresa")
+</div>

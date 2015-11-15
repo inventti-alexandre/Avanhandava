@@ -26,6 +26,7 @@ namespace Avanhandava.Domain.Service.Admin
             item.Codigo = item.Codigo.ToUpper().Trim();
             item.Descricao = item.Descricao.ToUpper().Trim();
             item.AlteradoEm = DateTime.Now;
+            
 
             // valida
             if (repository.Listar().Where(x => x.Codigo == item.Codigo && x.Id != item.Id).Count() > 0)
@@ -69,5 +70,7 @@ namespace Avanhandava.Domain.Service.Admin
         {
             return repository.Find(id);
         }
+
+        public int HttpContext { get; set; }
     }
 }

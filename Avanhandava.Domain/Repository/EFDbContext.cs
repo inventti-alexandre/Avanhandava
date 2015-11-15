@@ -20,6 +20,14 @@ namespace Avanhandava.Domain.Repository
             //modelBuilder.Entity<CliGrupoPermissao>().HasKey(x => new { x.IdGrupo, x.IdPermissao });
         }
 
+        public DbSet<Conta> Conta { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
+        public DbSet<Estado> Estado { get; set; }
+        public DbSet<Fornecedor> Fornecedor { get; set; }
+        public DbSet<FPgto> Fpgto { get; set; }
+        public DbSet<GrupoCusto> GrupoCusto { get; set; }
+        public DbSet<ItemCusto> ItemCusto { get; set; }
+        public DbSet<Pgto> Pgto { get; set; }
         public DbSet<SistemaParametro> SistemaParametro { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     }

@@ -125,7 +125,23 @@
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Controle\ControleAreaRegistration.cs" />
+    <Compile Include="Areas\Controle\Controllers\ContaController.cs" />
+    <Compile Include="Areas\Controle\Controllers\EmpresaController.cs" />
+    <Compile Include="Areas\Controle\Controllers\EstadoController.cs" />
+    <Compile Include="Areas\Controle\Controllers\FormaPagamentoController.cs" />
+    <Compile Include="Areas\Controle\Controllers\FormaPrevistaPagamentoController.cs" />
+    <Compile Include="Areas\Controle\Controllers\FornecedorController.cs" />
+    <Compile Include="Areas\Controle\Controllers\GrupoCustoController.cs" />
+    <Compile Include="Areas\Controle\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Controle\Controllers\ItemController.cs" />
+    <Compile Include="Areas\Controle\Controllers\LoginController.cs" />
     <Compile Include="Areas\Controle\Controllers\SistemaParametroController.cs" />
+    <Compile Include="Areas\Controle\Models\LoginUsuario.cs" />
+    <Compile Include="Common\AreaAuthorizeAttribute.cs" />
+    <Compile Include="Common\BindContaHelper.cs" />
+    <Compile Include="Common\BindEmpresaHelper.cs" />
+    <Compile Include="Common\BindEstadosHelper.cs" />
+    <Compile Include="Common\Identification.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -145,6 +161,52 @@
     <Content Include="Areas\Controle\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Controle\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Controle\Views\SistemaParametro\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\SistemaParametro\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\SistemaParametro\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\SistemaParametro\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\SistemaParametro\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Estado\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Estado\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Estado\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Estado\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Estado\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPrevistaPagamento\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPrevistaPagamento\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPrevistaPagamento\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPrevistaPagamento\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPrevistaPagamento\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPagamento\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPagamento\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPagamento\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPagamento\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\FormaPagamento\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\GrupoCusto\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\GrupoCusto\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\GrupoCusto\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\GrupoCusto\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\GrupoCusto\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Item\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Item\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Item\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Item\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Item\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Empresa\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Empresa\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Empresa\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Empresa\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Empresa\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Fornecedor\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Fornecedor\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Fornecedor\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Fornecedor\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Fornecedor\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Excluir.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -175,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Controle\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
