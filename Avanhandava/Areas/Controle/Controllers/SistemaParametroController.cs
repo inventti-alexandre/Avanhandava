@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace Avanhandava.Areas.Controle.Controllers
 {
+    [Authorize]
     public class SistemaParametroController : Controller
     {
         private IBaseService<SistemaParametro> _service;

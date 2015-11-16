@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Avanhandava.Areas.Controle.Controllers
 {
+    [Authorize]
     public class EstadoController : Controller
     {
         private IBaseService<Estado> _service;

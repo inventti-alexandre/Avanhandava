@@ -136,6 +136,7 @@
     <Compile Include="Areas\Controle\Controllers\ItemController.cs" />
     <Compile Include="Areas\Controle\Controllers\LoginController.cs" />
     <Compile Include="Areas\Controle\Controllers\SistemaParametroController.cs" />
+    <Compile Include="Areas\Controle\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Controle\Models\LoginUsuario.cs" />
     <Compile Include="Common\AreaAuthorizeAttribute.cs" />
     <Compile Include="Common\BindContaHelper.cs" />
@@ -207,6 +208,15 @@
     <Content Include="Areas\Controle\Views\Conta\Incluir.cshtml" />
     <Content Include="Areas\Controle\Views\Conta\Editar.cshtml" />
     <Content Include="Areas\Controle\Views\Conta\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\TrocarSenha.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\RedefinirSenha.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\SenhaAlterada.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\SenhaRedefinida.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Usuario\Excluir.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

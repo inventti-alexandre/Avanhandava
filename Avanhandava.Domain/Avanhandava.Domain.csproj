@@ -89,6 +89,7 @@
     <Compile Include="Models\Admin\ItemCusto.cs" />
     <Compile Include="Models\Admin\Pgto.cs" />
     <Compile Include="Models\Admin\SistemaParametro.cs" />
+    <Compile Include="Models\Admin\TrocaSenha.cs" />
     <Compile Include="Models\Admin\Usuario.cs" />
     <Compile Include="Models\Admin\Conta.cs" />
     <Compile Include="Models\Email\EmailCredential.cs" />
