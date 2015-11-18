@@ -6,21 +6,21 @@ using System.Linq;
 
 namespace Avanhandava.Domain.Service.Admin
 {
-    public class FPgtoService: IBaseService<FPgto>
+    public class TipoCreditoService: IBaseService<TipoCredito>
     {
-        private IBaseRepository<FPgto> repository;
+        private IBaseRepository<TipoCredito> repository;
 
-        public FPgtoService()
+        public TipoCreditoService()
         {
-            repository = new EFRepository<FPgto>();
+            repository = new EFRepository<TipoCredito>();
         }
 
-        public IQueryable<FPgto> Listar()
+        public IQueryable<TipoCredito> Listar()
         {
             return repository.Listar();
         }
 
-        public int Gravar(FPgto item)
+        public int Gravar(TipoCredito item)
         {
             // formata
             item.Descricao = item.Descricao.ToUpper().Trim();
@@ -29,7 +29,7 @@ namespace Avanhandava.Domain.Service.Admin
             // valida
             if (repository.Listar().Where(x => x.Descricao == item.Descricao && x.Id != item.Id).Count() > 0)
             {
-                throw new ArgumentException("Já existe uma forma de pagamento cadastrada com esta descrição");
+                throw new ArgumentException("Já existe um tipo de crédito cadastrado com esta descrição");
             }
 
             // grava
@@ -42,7 +42,7 @@ namespace Avanhandava.Domain.Service.Admin
             return repository.Alterar(item).Id;
         }
 
-        public FPgto Excluir(int id)
+        public TipoCredito Excluir(int id)
         {
             try
             {
@@ -51,20 +51,19 @@ namespace Avanhandava.Domain.Service.Admin
             catch (Exception)
             {
                 // BD nao permite exclusao por FK, inativo
-                var fpgto = repository.Find(id);
+                var tipo = repository.Find(id);
 
-                if (fpgto != null)
+                if (tipo != null)
                 {
-                    fpgto.AlteradoEm = DateTime.Now;
-                    fpgto.Ativo = false;
-                    return repository.Alterar(fpgto);
+                    tipo.AlteradoEm = DateTime.Now;
+                    tipo.Ativo = false;
+                    return repository.Alterar(tipo);
                 }
-
-                return fpgto;
+                return tipo;
             }
         }
 
-        public FPgto Find(int id)
+        public TipoCredito Find(int id)
         {
             return repository.Find(id);
         }

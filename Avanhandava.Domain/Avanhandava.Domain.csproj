@@ -89,6 +89,7 @@
     <Compile Include="Models\Admin\ItemCusto.cs" />
     <Compile Include="Models\Admin\Pgto.cs" />
     <Compile Include="Models\Admin\SistemaParametro.cs" />
+    <Compile Include="Models\Admin\TipoCredito.cs" />
     <Compile Include="Models\Admin\TrocaSenha.cs" />
     <Compile Include="Models\Admin\Usuario.cs" />
     <Compile Include="Models\Admin\Conta.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Service\Admin\ItemCustoService.cs" />
     <Compile Include="Service\Admin\PgtoService.cs" />
     <Compile Include="Service\Admin\SistemaParametroService.cs" />
+    <Compile Include="Service\Admin\TipoCreditoService.cs" />
     <Compile Include="Service\Admin\UsuarioService.cs" />
     <Compile Include="Service\Email\EnviarEmail.cs" />
   </ItemGroup>

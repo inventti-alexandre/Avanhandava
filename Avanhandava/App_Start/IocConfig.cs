@@ -29,6 +29,7 @@ namespace Avanhandava.App_Start
             kernel.Bind<IBaseService<ItemCusto>>().To<ItemCustoService>();
             kernel.Bind<IBaseService<Pgto>>().To<PgtoService>();
             kernel.Bind<IBaseService<SistemaParametro>>().To<SistemaParametroService>();
+            kernel.Bind<IBaseService<TipoCredito>>().To<TipoCreditoService>();
             kernel.Bind<ITrocaSenha>().To<UsuarioService>();
             kernel.Bind<IBaseService<Usuario>>().To<UsuarioService>();
             kernel.Bind<ILogin>().To<UsuarioService>();

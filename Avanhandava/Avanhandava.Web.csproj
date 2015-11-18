@@ -136,6 +136,7 @@
     <Compile Include="Areas\Controle\Controllers\ItemController.cs" />
     <Compile Include="Areas\Controle\Controllers\LoginController.cs" />
     <Compile Include="Areas\Controle\Controllers\SistemaParametroController.cs" />
+    <Compile Include="Areas\Controle\Controllers\TipoCreditoController.cs" />
     <Compile Include="Areas\Controle\Controllers\UsuarioController.cs" />
     <Compile Include="Areas\Controle\Models\LoginUsuario.cs" />
     <Compile Include="Common\AreaAuthorizeAttribute.cs" />
@@ -217,6 +218,11 @@
     <Content Include="Areas\Controle\Views\Usuario\Incluir.cshtml" />
     <Content Include="Areas\Controle\Views\Usuario\Editar.cshtml" />
     <Content Include="Areas\Controle\Views\Usuario\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\TipoCredito\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\TipoCredito\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\TipoCredito\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\TipoCredito\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\TipoCredito\Excluir.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
