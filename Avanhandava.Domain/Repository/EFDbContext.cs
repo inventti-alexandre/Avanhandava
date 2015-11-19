@@ -21,6 +21,7 @@ namespace Avanhandava.Domain.Repository
         }
 
         public DbSet<Conta> Conta { get; set; }
+        public DbSet<Credito> Credito { get; set; }
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Estado> Estado { get; set; }
         public DbSet<Fornecedor> Fornecedor { get; set; }

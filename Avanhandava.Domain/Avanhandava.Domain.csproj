@@ -81,6 +81,7 @@
     <Compile Include="Abstract\Email\IEmail.cs" />
     <Compile Include="Abstract\IBaseService.cs" />
     <Compile Include="Common\NotEqualAttribute.cs" />
+    <Compile Include="Models\Admin\Credito.cs" />
     <Compile Include="Models\Admin\Empresa.cs" />
     <Compile Include="Models\Admin\Estado.cs" />
     <Compile Include="Models\Admin\Fornecedor.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Repository\EFRepository.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
     <Compile Include="Service\Admin\ContaService.cs" />
+    <Compile Include="Service\Admin\CreditoService.cs" />
     <Compile Include="Service\Admin\EmpresaService.cs" />
     <Compile Include="Service\Admin\EstadoService.cs" />
     <Compile Include="Service\Admin\FornecedorService.cs" />
