@@ -9,7 +9,6 @@ namespace Avanhandava.Domain.Models.Admin
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Empresa_Credito")]
         [Display(Name="Empresa")]
         [Range(1,double.MaxValue, ErrorMessage="Selecione a empresa")]
         public int IdEmpresa { get; set; }
@@ -18,7 +17,6 @@ namespace Avanhandava.Domain.Models.Admin
         [Range(1,double.MaxValue, ErrorMessage="Selecione a conta")]
         public int IdConta { get; set; }
 
-        [ForeignKey("TipoCredito_Credito")]
         [Display(Name="Tipo de crédito")]
         [Range(1,double.MaxValue, ErrorMessage="Selecione o tipo de crédito")]
         public int IdTipoCredito { get; set; }

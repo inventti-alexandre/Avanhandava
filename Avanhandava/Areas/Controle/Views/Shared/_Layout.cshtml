@@ -45,6 +45,15 @@
                             <li><a href="/Controle/Movimentacao">Movimentação diária</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatórios<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Controle/Entradas">Créditos</a></li>
+                            <li><a href="/Controle/Saidas">Débitos</a></li>
+                            <li><a href="/Controle/Movimentacao">Movimentação diária</a></li>
+                            <li><a href="/Controle/Grafico">Gráficos</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 @if (User.Identity.IsAuthenticated)
                 {

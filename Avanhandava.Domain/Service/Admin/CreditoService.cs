@@ -65,7 +65,7 @@ namespace Avanhandava.Domain.Service.Admin
 
                 return repository.Excluir(id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new ArgumentException("Não é possível excluir este crédito");
             }
