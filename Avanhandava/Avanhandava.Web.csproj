@@ -125,7 +125,9 @@
     <Compile Include="App_Start\IocConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Controle\ControleAreaRegistration.cs" />
+    <Compile Include="Areas\Controle\Controllers\AgendamentoController.cs" />
     <Compile Include="Areas\Controle\Controllers\ContaController.cs" />
+    <Compile Include="Areas\Controle\Controllers\CreditoController.cs" />
     <Compile Include="Areas\Controle\Controllers\EmpresaController.cs" />
     <Compile Include="Areas\Controle\Controllers\EstadoController.cs" />
     <Compile Include="Areas\Controle\Controllers\FormaPagamentoController.cs" />
@@ -135,14 +137,23 @@
     <Compile Include="Areas\Controle\Controllers\HomeController.cs" />
     <Compile Include="Areas\Controle\Controllers\ItemController.cs" />
     <Compile Include="Areas\Controle\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Controle\Controllers\ParcelaController.cs" />
+    <Compile Include="Areas\Controle\Controllers\PesquisaAgendamentoController.cs" />
     <Compile Include="Areas\Controle\Controllers\SistemaParametroController.cs" />
     <Compile Include="Areas\Controle\Controllers\TipoCreditoController.cs" />
     <Compile Include="Areas\Controle\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Controle\Models\CreditoModel.cs" />
     <Compile Include="Areas\Controle\Models\LoginUsuario.cs" />
     <Compile Include="Common\AreaAuthorizeAttribute.cs" />
     <Compile Include="Common\BindContaHelper.cs" />
     <Compile Include="Common\BindEmpresaHelper.cs" />
     <Compile Include="Common\BindEstadosHelper.cs" />
+    <Compile Include="Common\BindFornecedorHelper.cs" />
+    <Compile Include="Common\BindFPgtoHelper.cs" />
+    <Compile Include="Common\BindGrupoCustoHelper.cs" />
+    <Compile Include="Common\BindItemCustoHelper.cs" />
+    <Compile Include="Common\BindPgtoHelper.cs" />
+    <Compile Include="Common\BindTipoCreditoHelper.cs" />
     <Compile Include="Common\Identification.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -223,6 +234,20 @@
     <Content Include="Areas\Controle\Views\TipoCredito\Incluir.cshtml" />
     <Content Include="Areas\Controle\Views\TipoCredito\Editar.cshtml" />
     <Content Include="Areas\Controle\Views\TipoCredito\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Credito\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Conta\Contas.cshtml" />
+    <Content Include="Areas\Controle\Views\Credito\Creditos.cshtml" />
+    <Content Include="Areas\Controle\Views\Credito\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Credito\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\Credito\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Parcela\Parcelas.cshtml" />
+    <Content Include="Areas\Controle\Views\Agendamento\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Parcela\Incluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Parcela\Detalhes.cshtml" />
+    <Content Include="Areas\Controle\Views\Parcela\Excluir.cshtml" />
+    <Content Include="Areas\Controle\Views\Parcela\Editar.cshtml" />
+    <Content Include="Areas\Controle\Views\PesquisaAgendamento\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\PesquisaAgendamento\PesquisaParcelas.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -254,6 +279,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\BindGrupoCusto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

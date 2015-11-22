@@ -1,0 +1,106 @@
+﻿@model Avanhandava.Domain.Models.Admin.Agendamento
+@using Avanhandava.Common;
+
+@{
+    ViewBag.Title = "Agendamento";
+}
+
+<h2>Agendamento</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CadastradoPor)
+        @Html.HiddenFor(model => model.CadastradoEm)
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.IdEmpresa)
+                @Html.SelectEmpresa(Model.IdEmpresa)
+            </div>
+
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.IdGrupoCusto)
+                @Html.SelectGrupoCusto(Model.IdGrupoCusto)
+            </div>
+
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.IdItemCusto)
+                @Html.SelectItemCusto(Model.IdItemCusto, Model.IdGrupoCusto)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.IdFornecedor)
+                @Html.SelectFornecedor(Model.IdFornecedor)
+            </div>
+
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Referencia)
+                @Html.EditorFor(model => model.Referencia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Referencia, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Descricao)
+                @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Observ, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Observ, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Observ, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-10 text-left pull-left">
+                <input type="submit" value="Gravar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@{
+    if (Model.Id > 0)
+    {
+        <div id="parcelas" class="top40">
+            @{ Html.RenderAction("Parcelas", "Parcela", new { idAgendamento = Model.Id }); }
+        </div>
+    }
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#IdGrupoCusto").change(function () {
+            $("#IdItemCusto").empty();
+            var id = $("#IdGrupoCusto").val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetItens","Item")',
+                dataType: 'json',
+                data: { idGrupoCusto : id },
+                cache: false,
+                success: function (itens) {
+                    $.each(itens, function (i, item) {
+                        $("#IdItemCusto").append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                    });
+                },
+                error: function(ex){
+                    alert('Failed to retrive itens: ' + ex);
+                }
+            });
+        });
+    });
+</script>

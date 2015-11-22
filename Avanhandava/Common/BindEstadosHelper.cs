@@ -16,6 +16,7 @@ namespace Avanhandava.Common
             TagBuilder tag = new TagBuilder("select");
             tag.MergeAttribute("id", "IdEstado");
             tag.MergeAttribute("name", "IdEstado");
+            tag.MergeAttribute("class", "form-control");
 
             foreach (var item in estados)
             {

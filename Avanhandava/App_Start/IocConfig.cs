@@ -20,13 +20,16 @@ namespace Avanhandava.App_Start
             IKernel kernel = new StandardKernel();
 
             // mapeamento - interfaces x classes
+            kernel.Bind<IBaseService<Agendamento>>().To<AgendamentoService>();
             kernel.Bind<IBaseService<Conta>>().To<ContaService>();
+            kernel.Bind<IBaseService<Credito>>().To<CreditoService>();
             kernel.Bind<IBaseService<Empresa>>().To<EmpresaService>();
             kernel.Bind<IBaseService<Estado>>().To<EstadoService>();
             kernel.Bind<IBaseService<Fornecedor>>().To<FornecedorService>();
             kernel.Bind<IBaseService<FPgto>>().To<FPgtoService>();
             kernel.Bind<IBaseService<GrupoCusto>>().To<GrupoCustoService>();
             kernel.Bind<IBaseService<ItemCusto>>().To<ItemCustoService>();
+            kernel.Bind<IBaseService<Parcela>>().To<ParcelaService>();
             kernel.Bind<IBaseService<Pgto>>().To<PgtoService>();
             kernel.Bind<IBaseService<SistemaParametro>>().To<SistemaParametroService>();
             kernel.Bind<IBaseService<TipoCredito>>().To<TipoCreditoService>();

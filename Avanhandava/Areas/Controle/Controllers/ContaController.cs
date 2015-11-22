@@ -3,7 +3,6 @@ using Avanhandava.Domain.Abstract;
 using Avanhandava.Domain.Abstract.Admin;
 using Avanhandava.Domain.Models.Admin;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -166,6 +165,27 @@ namespace Avanhandava.Areas.Controle.Controllers
                 }
                 return View(conta);
             }
+        }
+
+        public PartialViewResult Contas(int idEmpresa)
+        {
+            ViewBag.IdEmpresa = idEmpresa;
+            return PartialView();
+        }
+
+        public JsonResult GetContas(int idEmpresa)
+        {
+            if (HttpContext.Request.IsAjaxRequest())
+            {
+                var contas = _service.Listar()
+                    .Where(x => x.Ativo == true && x.IdEmpresa == idEmpresa)
+                    .OrderBy(x => x.Descricao)
+                    .ToList();
+
+                return Json(new SelectList(contas, "Id", "Descricao"), JsonRequestBehavior.AllowGet);
+            }
+
+            return null;
         }
     }
 }

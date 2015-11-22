@@ -51,12 +51,16 @@ namespace Avanhandava.Areas.Controle.Controllers
 
         // POST: Controle/Fornecedor/Create
         [HttpPost]
-        public ActionResult Incluir([Bind(Include = "Fantasia,RazaoSocial,Cnpj,IE,Ccm,Endereco,Bairro,Cidade,IdEstado,Cep,Observ,Telefone,Email")] Fornecedor fornecedor)
+        public ActionResult Incluir([Bind(Include = "Fantasia,Observ,Telefone,Email,Contato")] Fornecedor fornecedor)
         {
             try
             {
                 fornecedor.AlteradoEm = DateTime.Now;
                 fornecedor.AlteradoPor = Identification.IdUsuario;
+                if (string.IsNullOrEmpty(fornecedor.Contato))
+                {
+                    fornecedor.Contato = string.Empty;
+                }
                 TryUpdateModel(fornecedor);
 
                 if (ModelState.IsValid)
@@ -93,12 +97,16 @@ namespace Avanhandava.Areas.Controle.Controllers
 
         // POST: Controle/Fornecedor/Edit/5
         [HttpPost]
-        public ActionResult Editar([Bind(Include = "Id,Ativo,Fantasia,RazaoSocial,Cnpj,IE,Ccm,Endereco,Bairro,Cidade,IdEstado,Cep,Observ,Telefone,Email")] Fornecedor fornecedor)
+        public ActionResult Editar([Bind(Include = "Id,Ativo,Fantasia,Observ,Telefone,Email,Contato")] Fornecedor fornecedor)
         {
             try
             {
                 fornecedor.AlteradoEm = DateTime.Now;
                 fornecedor.AlteradoPor = Identification.IdUsuario;
+                if (string.IsNullOrEmpty(fornecedor.Contato))
+                {
+                    fornecedor.Contato = string.Empty;
+                }
                 TryUpdateModel(fornecedor);
 
                 if (ModelState.IsValid)

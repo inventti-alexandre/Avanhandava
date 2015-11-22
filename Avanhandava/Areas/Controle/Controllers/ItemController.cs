@@ -158,5 +158,25 @@ namespace Avanhandava.Areas.Controle.Controllers
                 return View(itemCusto);
             }
         }
+
+        public JsonResult GetItens(int idGrupoCusto)
+        {
+            if (HttpContext.Request.IsAjaxRequest())
+            {
+                var itens = _service.Listar()
+                    .Where(x => x.Ativo == true && (x.IdGrupoCusto == idGrupoCusto || idGrupoCusto == 0))
+                    .OrderBy(x => x.Descricao)
+                    .ToList();
+
+                if (idGrupoCusto == 0)
+                {
+                    itens.Insert(0, new ItemCusto { Id = 0, Descricao = "" });
+                }
+
+                return Json(new SelectList(itens.OrderBy(x => x.Descricao), "Id", "Descricao"), JsonRequestBehavior.AllowGet);
+            }
+
+            return null;
+        }
     }
 }

@@ -1,0 +1,135 @@
+﻿@model Avanhandava.Domain.Models.Admin.Parcela
+
+@{
+    ViewBag.Title = "Parcela";
+}
+
+<div class="alert alert-danger top40">
+    <h4>Confirma a exclusão desta parcela?</h4>
+</div>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vencto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vencto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPgto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pgto.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdFpgto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FPgto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPgto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPgto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cheque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cheque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Compensado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compensado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompensadoEm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompensadoEm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoEm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlteradoEm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FPgto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FPgto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index", "Agendamento", new { id = Model.IdAgendamento }, null)
+        </div>
+    }
+</div>

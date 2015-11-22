@@ -4,19 +4,18 @@ using System.Web.Mvc;
 
 namespace Avanhandava.Common
 {
-    public static class BindContaHelper
+    public static class BindGrupoCustoHelper
     {
-        public static MvcHtmlString SelectConta(this HtmlHelper html, int idConta = 0, int idEmpresa = 0, bool todas = false)
+        public static MvcHtmlString SelectGrupoCusto(this HtmlHelper html, int idGrupoCusto = 0, bool todas = false)
         {
-            var contas = new ContaService().Listar()
-                .Where(x => x.Ativo == true &&
-                    (idEmpresa == 0 || x.IdEmpresa == idEmpresa))
+            var grupos = new GrupoCustoService().Listar()
+                .Where(x => x.Ativo == true)
                 .OrderBy(x => x.Descricao)
                 .ToList();
 
             TagBuilder tag = new TagBuilder("select");
-            tag.MergeAttribute("id", "IdConta");
-            tag.MergeAttribute("name", "IdConta");
+            tag.MergeAttribute("id", "IdGrupoCusto");
+            tag.MergeAttribute("name", "IdGrupoCusto");
             tag.MergeAttribute("class", "form-control");
 
             if (todas == true)
@@ -27,11 +26,11 @@ namespace Avanhandava.Common
                 tag.InnerHtml += itemTag.ToString();
             }
 
-            foreach (var item in contas)
+            foreach (var item in grupos)
             {
                 TagBuilder itemTag = new TagBuilder("option");
                 itemTag.MergeAttribute("value", item.Id.ToString());
-                if (item.Id == idConta)
+                if (item.Id == idGrupoCusto)
                 {
                     itemTag.MergeAttribute("selected", "selected");
                 }

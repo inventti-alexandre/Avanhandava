@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Avanhandava.Domain.Models.Admin.Parcela>
+
+<div>
+    @Html.ActionLink("Incluir parcela", "Incluir", new { idAgendamento = @ViewBag.IdAgendamento })
+</div>
+
+<table class="table top20">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vencto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdFpgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdConta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cheque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Compensado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vencto)
+        </td>
+        <td class="text-right">
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pgto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPgto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FPgto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conta)
+        </td>
+        <td>
+            @if (item.Cheque > 0)
+            {
+                @Html.DisplayFor(modelItem => item.Cheque)
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Compensado)
+        </td>
+        <td>
+            @if (item.Cheque == 0)
+            {
+                @Html.ActionLink("Editar", "Editar", new { id = item.Id }) @:|
+            }
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.Id }) |
+            @if (item.Cheque == 0)
+	        {
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id })
+	        }
+        </td>
+    </tr>    
+}
+    <tr>
+        <td></td>
+        <td class="text-right"><b>@ViewBag.Total.ToString("N2")</b></td>
+        <td colspan="7"></td>
+    </tr>
+
+</table>

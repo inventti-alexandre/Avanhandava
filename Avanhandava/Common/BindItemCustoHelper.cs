@@ -4,19 +4,19 @@ using System.Web.Mvc;
 
 namespace Avanhandava.Common
 {
-    public static class BindContaHelper
+    public static class BindItemCustoHelper
     {
-        public static MvcHtmlString SelectConta(this HtmlHelper html, int idConta = 0, int idEmpresa = 0, bool todas = false)
+        public static MvcHtmlString SelectItemCusto(this HtmlHelper html, int idItemCusto = 0, int idGrupoCusto = 0, bool todas = false)
         {
-            var contas = new ContaService().Listar()
-                .Where(x => x.Ativo == true &&
-                    (idEmpresa == 0 || x.IdEmpresa == idEmpresa))
+            var itens = new ItemCustoService().Listar()
+                .Where(x => x.Ativo == true
+                    && (idGrupoCusto == 0 || x.IdGrupoCusto == idGrupoCusto))
                 .OrderBy(x => x.Descricao)
                 .ToList();
 
             TagBuilder tag = new TagBuilder("select");
-            tag.MergeAttribute("id", "IdConta");
-            tag.MergeAttribute("name", "IdConta");
+            tag.MergeAttribute("id", "IdItemCusto");
+            tag.MergeAttribute("name", "IdItemCusto");
             tag.MergeAttribute("class", "form-control");
 
             if (todas == true)
@@ -27,11 +27,11 @@ namespace Avanhandava.Common
                 tag.InnerHtml += itemTag.ToString();
             }
 
-            foreach (var item in contas)
+            foreach (var item in itens)
             {
                 TagBuilder itemTag = new TagBuilder("option");
                 itemTag.MergeAttribute("value", item.Id.ToString());
-                if (item.Id == idConta)
+                if (item.Id == idItemCusto)
                 {
                     itemTag.MergeAttribute("selected", "selected");
                 }
@@ -40,6 +40,7 @@ namespace Avanhandava.Common
             }
 
             return new MvcHtmlString(tag.ToString());
+
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Avanhandava.Areas.Controle.Controllers
 
         // POST: Controle/Empresa/Create
         [HttpPost]
-        public ActionResult Incluir([Bind(Include="Fantasia,RazaoSocial,Cnpj,IE,Ccm,Endereco,Bairro,Cidade,IdEstado,Cep,Observ,Telefone,Email")] Empresa empresa)
+        public ActionResult Incluir([Bind(Include="Fantasia,Observ,Email")] Empresa empresa)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace Avanhandava.Areas.Controle.Controllers
 
         // POST: Controle/Empresa/Edit/5
         [HttpPost]
-        public ActionResult Editar([Bind(Include = "Id,Ativo,Fantasia,RazaoSocial,Cnpj,IE,Ccm,Endereco,Bairro,Cidade,IdEstado,Cep,Observ,Telefone,Email")] Empresa empresa)
+        public ActionResult Editar([Bind(Include = "Id,Ativo,Fantasia,Observ,Email")] Empresa empresa)
         {
             try
             {

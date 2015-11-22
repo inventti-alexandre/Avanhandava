@@ -24,20 +24,15 @@ namespace Avanhandava.Domain.Service.Admin
         {
             // formata
             item.AlteradoEm = DateTime.Now;
-            item.Bairro = item.Bairro.ToUpper().Trim();
-            item.Cidade = item.Cidade.ToUpper().Trim();
             item.Email = item.Email.ToLower().Trim();
-            item.Endereco = item.Endereco.ToUpper().Trim();
             item.Fantasia = item.Fantasia.ToUpper().Trim();
-            item.RazaoSocial = "" + item.RazaoSocial.ToUpper().Trim();
-            item.IE = "" + item.IE;
-            item.Ccm = "" + item.Ccm;
             item.Observ = "" + item.Observ;
+            item.Contato = string.IsNullOrEmpty(item.Contato) ? string.Empty : item.Contato.ToUpper().Trim();
 
             // valida
-            if (repository.Listar().Where(x => (x.Fantasia == item.Fantasia || x.Cnpj == item.Cnpj || x.RazaoSocial == item.RazaoSocial) && x.Id != item.Id).Count() > 0)
+            if (repository.Listar().Where(x => x.Fantasia == item.Fantasia  && x.Id != item.Id).Count() > 0)
             {
-                throw new ArgumentException("Já existe um fornecedor cadastrado com este nome fantasia/razão social/CNPJ");
+                throw new ArgumentException("Já existe um fornecedor cadastrado com este nome fantasia");
             }
 
             // grava

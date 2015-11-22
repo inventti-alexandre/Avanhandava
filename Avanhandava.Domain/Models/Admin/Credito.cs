@@ -22,14 +22,22 @@ namespace Avanhandava.Domain.Models.Admin
         public int IdTipoCredito { get; set; }
 
         [Display(Name="Data do crédito")]
+        [DisplayFormat(DataFormatString="{0:dd/MM/yyyy}",ApplyFormatInEditMode=true)]
         [Required(ErrorMessage="Informe a data do crédito")]
         public DateTime DataCredito { get; set;}
 
+        [Display(Name = "Referência")]
+        [DisplayFormat(DataFormatString = "{0:MM/yyyy}",ApplyFormatInEditMode=true)]
+        [Required(ErrorMessage = "Informa a data de referência do crédito")]
+        public DateTime Referencia { get; set; }
+
         [Required(ErrorMessage="Informe a descrição do crédito")]
         [Display(Name="Descrição")]
+        [StringLength(100,ErrorMessage="A descrição do crédito é composta por no máximo 100 caracteres")]
         public string Descricao { get; set; }
 
         [Range(0.01, double.MaxValue, ErrorMessage="Valor do crédito inválido")]
+        [DisplayFormat(DataFormatString="{0:C2}")]
         public decimal Valor { get; set; }
 
         public bool Ativo { get; set; }

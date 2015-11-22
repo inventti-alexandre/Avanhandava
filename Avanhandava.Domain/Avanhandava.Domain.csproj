@@ -81,6 +81,7 @@
     <Compile Include="Abstract\Email\IEmail.cs" />
     <Compile Include="Abstract\IBaseService.cs" />
     <Compile Include="Common\NotEqualAttribute.cs" />
+    <Compile Include="Models\Admin\Agendamento.cs" />
     <Compile Include="Models\Admin\Credito.cs" />
     <Compile Include="Models\Admin\Empresa.cs" />
     <Compile Include="Models\Admin\Estado.cs" />
@@ -88,6 +89,8 @@
     <Compile Include="Models\Admin\FPgto.cs" />
     <Compile Include="Models\Admin\GrupoCusto.cs" />
     <Compile Include="Models\Admin\ItemCusto.cs" />
+    <Compile Include="Models\Admin\Parcela.cs" />
+    <Compile Include="Models\Admin\PesquisaAgendamentoModel.cs" />
     <Compile Include="Models\Admin\Pgto.cs" />
     <Compile Include="Models\Admin\SistemaParametro.cs" />
     <Compile Include="Models\Admin\TipoCredito.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Repository\EFDbContext.cs" />
     <Compile Include="Repository\EFRepository.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Service\Admin\AgendamentoService.cs" />
     <Compile Include="Service\Admin\ContaService.cs" />
     <Compile Include="Service\Admin\CreditoService.cs" />
     <Compile Include="Service\Admin\EmpresaService.cs" />
@@ -107,11 +111,13 @@
     <Compile Include="Service\Admin\FpgtoService.cs" />
     <Compile Include="Service\Admin\GrupoCustoService.cs" />
     <Compile Include="Service\Admin\ItemCustoService.cs" />
+    <Compile Include="Service\Admin\PesquisaService.cs" />
     <Compile Include="Service\Admin\PgtoService.cs" />
     <Compile Include="Service\Admin\SistemaParametroService.cs" />
     <Compile Include="Service\Admin\TipoCreditoService.cs" />
     <Compile Include="Service\Admin\UsuarioService.cs" />
     <Compile Include="Service\Email\EnviarEmail.cs" />
+    <Compile Include="Service\Admin\ParcelaService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

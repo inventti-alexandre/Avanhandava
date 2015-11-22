@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Avanhandava.Domain.Models.Admin.Parcela>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vencto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPgto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cheque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Compensado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FPgto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vencto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pgto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPgto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conta)
+        </td>
+        <td>
+            @if (item.Cheque > 0)
+            {
+                @Html.DisplayFor(modelItem => item.Cheque)
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Compensado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FPgto)
+        </td>
+        <td>
+            @Html.ActionLink("Detalhes", "Detalhes", "Parcela", new { id = item.Id }, new { target = "_blank" }) |
+            @Html.ActionLink("Agendamento", "Index", "Agendamento", new { id = item.IdAgendamento }, new { target = "_blank" }) |
+            @if (item.Cheque == 0)
+            {
+                @Html.ActionLink("Editar", "Editar", "Parcela", new { id = item.Id }, new { target = "_blank" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

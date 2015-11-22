@@ -6,7 +6,7 @@ namespace Avanhandava.Common
 {
     public static class BindEmpresaHelper
     {
-        public static MvcHtmlString SelectEmpresa(this HtmlHelper html, int idEmpresa = 0)
+        public static MvcHtmlString SelectEmpresa(this HtmlHelper html, int idEmpresa = 0, bool todas = false)
         {
             var empresas = new EmpresaService().Listar()
                 .Where(x => x.Ativo == true)
@@ -16,6 +16,15 @@ namespace Avanhandava.Common
             TagBuilder tag = new TagBuilder("select");
             tag.MergeAttribute("id", "IdEmpresa");
             tag.MergeAttribute("name", "IdEmpresa");
+            tag.MergeAttribute("class", "form-control");
+
+            if (todas == true)
+            {
+                TagBuilder itemTag = new TagBuilder("option");
+                itemTag.MergeAttribute("value", "0");
+                itemTag.SetInnerText("");
+                tag.InnerHtml += itemTag.ToString();                
+            }
 
             foreach (var item in empresas)
             {

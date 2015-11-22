@@ -1,0 +1,98 @@
+﻿@model Avanhandava.Domain.Models.Admin.Credito
+
+@{
+    ViewBag.Title = "Crédito";
+}
+
+<h2>Crédito - exclusão</h2>
+
+<div class="alert alert-danger">
+    <h4>Confirma a exclusão deste crédito?</h4>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.Fantasia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdConta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTipoCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCredito.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCredito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoPor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlteradoEm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlteradoEm)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index", new { idEmpresa = Model.IdEmpresa, idConta = Model.IdConta })
+        </div>
+    }
+</div>

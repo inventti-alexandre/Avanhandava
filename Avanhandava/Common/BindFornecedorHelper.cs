@@ -4,19 +4,18 @@ using System.Web.Mvc;
 
 namespace Avanhandava.Common
 {
-    public static class BindContaHelper
+    public static class BindFornecedorHelper
     {
-        public static MvcHtmlString SelectConta(this HtmlHelper html, int idConta = 0, int idEmpresa = 0, bool todas = false)
+        public static MvcHtmlString SelectFornecedor(this HtmlHelper html, int idFornecedor, bool todas = false)
         {
-            var contas = new ContaService().Listar()
-                .Where(x => x.Ativo == true &&
-                    (idEmpresa == 0 || x.IdEmpresa == idEmpresa))
-                .OrderBy(x => x.Descricao)
+            var fornecedores = new FornecedorService().Listar()
+                .Where(x => x.Ativo == true)
+                .OrderBy(x => x.Fantasia)
                 .ToList();
 
             TagBuilder tag = new TagBuilder("select");
-            tag.MergeAttribute("id", "IdConta");
-            tag.MergeAttribute("name", "IdConta");
+            tag.MergeAttribute("id", "IdFornecedor");
+            tag.MergeAttribute("name", "IdFornecedor");
             tag.MergeAttribute("class", "form-control");
 
             if (todas == true)
@@ -26,20 +25,21 @@ namespace Avanhandava.Common
                 itemTag.SetInnerText("");
                 tag.InnerHtml += itemTag.ToString();
             }
-
-            foreach (var item in contas)
+            
+            foreach (var item in fornecedores)
             {
                 TagBuilder itemTag = new TagBuilder("option");
                 itemTag.MergeAttribute("value", item.Id.ToString());
-                if (item.Id == idConta)
+                if (item.Id == idFornecedor)
                 {
                     itemTag.MergeAttribute("selected", "selected");
                 }
-                itemTag.SetInnerText(item.Descricao);
+                itemTag.SetInnerText(item.Fantasia);
                 tag.InnerHtml += itemTag.ToString();
             }
 
             return new MvcHtmlString(tag.ToString());
+
         }
     }
 }

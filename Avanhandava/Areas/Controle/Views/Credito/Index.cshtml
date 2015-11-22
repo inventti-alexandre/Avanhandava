@@ -1,0 +1,85 @@
+﻿@model Avanhandava.Areas.Controle.Models.CreditoModel
+@using Avanhandava.Common;
+@{
+    ViewBag.Title = "Créditos";
+}
+
+<h2>Créditos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-4">
+                Empresa:
+                @Html.SelectEmpresa(Model.IdEmpresa)
+            </div>
+
+            <div class="col-md-4">
+                Conta:
+                <div id="conta">
+                    @Html.SelectConta(Model.IdConta, Model.IdEmpresa)
+                </div>
+            </div>
+
+            <div class="col-md-4 top20">
+                <input type="submit" value="Incluir crédito" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div id="creditos" class="top40">
+    @{ Html.RenderAction("Creditos", new { idEmpresa = Model.IdEmpresa, idConta = Model.IdConta }); }
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#IdEmpresa").change(function () {
+            $("#IdConta").empty();
+            var id = $("#IdEmpresa").val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetContas", "Conta")',
+                dataType: 'json',
+                data: { idEmpresa: id },
+                success: function (contas) {
+                    $.each(contas, function (i, conta) {
+                        $("#IdConta").append('<option value="' + conta.Value + '">' + conta.Text + '</option>');
+                    });
+                    listarCreditos();
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve contas: ' + ex);
+                }
+            });
+        });
+
+        $("#IdConta").change(function () {
+            listarCreditos();
+        });
+
+        function listarCreditos() {
+            $.ajax({
+                url: '@Url.Action("Creditos", "Credito")',
+                data: { idEmpresa: $("#IdEmpresa").val(), idConta: $("#IdConta").val() },
+                datatype: 'html',
+                cache: false,
+                success: function (result) {
+                    $("#creditos").html(result);
+                },
+                error: function(ex) {
+                    alert(ex);
+                }
+            });
+        };
+    });
+</script>
