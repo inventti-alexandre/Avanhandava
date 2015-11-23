@@ -34,7 +34,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Vencto)
         </td>
-        <td>
+        <td class="text-right">
             @Html.DisplayFor(modelItem => item.Valor)
         </td>
         <td>
@@ -68,5 +68,12 @@
         </td>
     </tr>
 }
+<tr>
+    <td></td>
+    <td class="text-right">
+        <strong>@Model.Sum(x => x.Valor).ToString("N2")</strong>
+    </td>
+    <td colspan="7"></td>
+</tr>
 
 </table>

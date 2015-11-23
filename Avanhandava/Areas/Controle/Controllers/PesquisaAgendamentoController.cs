@@ -1,9 +1,6 @@
 ﻿using Avanhandava.Domain.Models.Admin;
 using Avanhandava.Domain.Service.Admin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Avanhandava.Areas.Controle.Controllers
@@ -21,10 +18,18 @@ namespace Avanhandava.Areas.Controle.Controllers
         [HttpPost]
         public ActionResult Index(PesquisaAgendamentoModel model)
         {
-            var service = new PesquisaService();
-            model.Parcelas = service.Pesquisar(model);
+            try
+            {
+                var service = new PesquisaService();
+                model.Parcelas = service.Pesquisar(model);
 
-            return View(model);
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
         }
     }
 }

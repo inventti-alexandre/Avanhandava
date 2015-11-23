@@ -128,6 +128,7 @@
     <Compile Include="Areas\Controle\Controllers\AgendamentoController.cs" />
     <Compile Include="Areas\Controle\Controllers\ContaController.cs" />
     <Compile Include="Areas\Controle\Controllers\CreditoController.cs" />
+    <Compile Include="Areas\Controle\Controllers\DebitoController.cs" />
     <Compile Include="Areas\Controle\Controllers\EmpresaController.cs" />
     <Compile Include="Areas\Controle\Controllers\EstadoController.cs" />
     <Compile Include="Areas\Controle\Controllers\FormaPagamentoController.cs" />
@@ -248,6 +249,7 @@
     <Content Include="Areas\Controle\Views\Parcela\Editar.cshtml" />
     <Content Include="Areas\Controle\Views\PesquisaAgendamento\Index.cshtml" />
     <Content Include="Areas\Controle\Views\PesquisaAgendamento\PesquisaParcelas.cshtml" />
+    <Content Include="Areas\Controle\Views\Debito\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

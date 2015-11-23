@@ -83,6 +83,7 @@
     <Compile Include="Common\NotEqualAttribute.cs" />
     <Compile Include="Models\Admin\Agendamento.cs" />
     <Compile Include="Models\Admin\Credito.cs" />
+    <Compile Include="Models\Admin\DebitoDiretoModel.cs" />
     <Compile Include="Models\Admin\Empresa.cs" />
     <Compile Include="Models\Admin\Estado.cs" />
     <Compile Include="Models\Admin\Fornecedor.cs" />

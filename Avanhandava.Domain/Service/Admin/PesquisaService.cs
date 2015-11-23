@@ -7,11 +7,30 @@ using System.Linq;
 namespace Avanhandava.Domain.Service.Admin
 {
     public class PesquisaService: IDisposable
-    {d
+    {
         private EFDbContext db = new EFDbContext();
         
         public List<Parcela> Pesquisar(PesquisaAgendamentoModel pesquisa)
         {
+            if (pesquisa.IdEmpresa == 0
+                && pesquisa.IdGrupoCusto == 0
+                && pesquisa.IdItemCusto == 0
+                && pesquisa.IdFornecedor == 0
+                && pesquisa.Referencia == null
+                && string.IsNullOrEmpty(pesquisa.Descricao)
+                && pesquisa.VenctoInicial == null
+                && pesquisa.VenctoFinal == null
+                && pesquisa.Valor == null
+                && pesquisa.IdPgto == 0
+                && string.IsNullOrEmpty(pesquisa.Observ)
+                && pesquisa.IdFpgto == 0
+                && pesquisa.DataPgto == null
+                && pesquisa.IdConta == 0
+                && pesquisa.Cheque == null)
+            {
+                throw new ArgumentException("Nenhum parâmetro selecionado para pesquisa");
+            }
+
             var lista = (from a in db.Agendamento
                          join p in db.Parcela on a.Id equals p.IdAgendamento
                          into ap
