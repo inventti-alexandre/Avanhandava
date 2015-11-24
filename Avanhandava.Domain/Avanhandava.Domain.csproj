@@ -106,6 +106,7 @@
     <Compile Include="Service\Admin\AgendamentoService.cs" />
     <Compile Include="Service\Admin\ContaService.cs" />
     <Compile Include="Service\Admin\CreditoService.cs" />
+    <Compile Include="Service\Admin\DebitoService.cs" />
     <Compile Include="Service\Admin\EmpresaService.cs" />
     <Compile Include="Service\Admin\EstadoService.cs" />
     <Compile Include="Service\Admin\FornecedorService.cs" />

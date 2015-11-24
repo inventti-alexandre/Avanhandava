@@ -84,3 +84,49 @@
         </div>
     </div>
 }
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#IdGrupoCusto").change(function () {
+            $("#IdItemCusto").empty();
+            var id = $("#IdGrupoCusto").val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetItens","Item")',
+                dataType: 'json',
+                data: { idGrupoCusto: id },
+                cache: false,
+                success: function (itens) {
+                    $.each(itens, function (i, item) {
+                        $("#IdItemCusto").append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrive itens: ' + ex);
+                }
+            });
+        });
+
+        $("#IdEmpresa").change(function () {
+            $("#IdConta").empty();
+            var id = $("#IdEmpresa").val();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetContas","Conta")',
+                dataType: 'json',
+                data: { idEmpresa: id },
+                cache: false,
+                success: function (contas) {
+                    $.each(contas, function (i, item) {
+                        $("#IdConta").append('<option value="' + item.Value + '">' + item.Text + '</option>');
+                    })
+                },
+                error: function (ex){
+                    alert('Fail to retrive itens: ' + ex);
+                }
+            });
+        });
+    });
+</script>

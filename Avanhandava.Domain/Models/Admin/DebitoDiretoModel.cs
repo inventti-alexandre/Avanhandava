@@ -46,7 +46,7 @@ namespace Avanhandava.Domain.Models.Admin
 
         [Required(ErrorMessage = "Informe o valor do agendamento")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Informe o valor do agendamento")]
-        public decimal? Valor { get; set; }
+        public decimal Valor { get; set; }
 
         [Display(Name = "Forma de pagamento")]
         public int IdFpgto { get; set; }
@@ -57,9 +57,14 @@ namespace Avanhandava.Domain.Models.Admin
         [Display(Name = "Cheque")]
         [Required(ErrorMessage="Informe o número do cheque")]
         [Range(1,int.MaxValue, ErrorMessage="Informe o número do cheque")]
-        public int? Cheque { get; set; }
+        public int Cheque { get; set; }
 
         [Display(Name = "Situação do pagamento")]
         public bool Compensado { get; set; }
+
+        [Required]
+        [Display(Name = "Alterado por")]
+        public int AlteradoPor { get; set; }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using Avanhandava.Domain.Models.Admin;
+﻿using Avanhandava.Common;
+using Avanhandava.Domain.Models.Admin;
+using Avanhandava.Domain.Service.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,15 @@ namespace Avanhandava.Areas.Controle.Controllers
         [HttpPost]
         public ActionResult Index(DebitoDiretoModel model)
         {
+            model.AlteradoPor = Identification.IdUsuario;
+            TryUpdateModel(model);
+
+            if (ModelState.IsValid)
+            {
+                int idAgendamento = new DebitoService().Debitar(model);
+                return RedirectToAction("Index");
+            }
+
             return View(model);
         }
     }
