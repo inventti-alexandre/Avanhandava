@@ -26,7 +26,7 @@ namespace Avanhandava.Tests.Admin
                 Nome = "jose alessandro",
                 Ramal = "",
                 Roles = "",
-                Senha = "123456",
+                Senha = "b8c7p2c6",
                 Telefone = "997218670"
             };
 

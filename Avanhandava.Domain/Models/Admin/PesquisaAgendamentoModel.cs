@@ -59,6 +59,9 @@ namespace Avanhandava.Domain.Models.Admin
         [Display(Name = "Cheque")]
         public int? Cheque { get; set; }
 
+        [Display(Name = "Cadastrado em")]
+        public DateTime? CadastradoEm { get; set; }
+
         //public bool Compensado { get; set; }
 
         public List<Parcela> Parcelas { get; set; }

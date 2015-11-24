@@ -33,5 +33,16 @@ namespace Avanhandava.Areas.Controle.Controllers
 
             return View(model);
         }
+
+        public PartialViewResult DebitosLancados(int idEmpresa)
+        {
+            var parcelas = new PesquisaService().Pesquisar(new PesquisaAgendamentoModel
+            {
+                IdEmpresa = idEmpresa,
+                CadastradoEm = DateTime.Today.Date
+            });
+
+            return PartialView("DebitosLancados", parcelas);
+        }
     }
 }

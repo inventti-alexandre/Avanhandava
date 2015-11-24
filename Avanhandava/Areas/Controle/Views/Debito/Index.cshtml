@@ -7,10 +7,10 @@
 
 <h2>Débito</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-inline">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -83,6 +83,15 @@
             </div>
         </div>
     </div>
+
+    <div id="debitos">
+        @{if (Model.IdEmpresa > 0)
+            {
+                Html.RenderAction("DebitosLancados", new { idEmpresa = Model.IdEmpresa });
+
+            }
+        }
+    </div>
 }
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
@@ -123,7 +132,7 @@
                         $("#IdConta").append('<option value="' + item.Value + '">' + item.Text + '</option>');
                     })
                 },
-                error: function (ex){
+                error: function (ex) {
                     alert('Fail to retrive itens: ' + ex);
                 }
             });

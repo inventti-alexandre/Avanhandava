@@ -2,6 +2,7 @@
 using Avanhandava.Domain.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 
 namespace Avanhandava.Domain.Service.Admin
@@ -26,7 +27,8 @@ namespace Avanhandava.Domain.Service.Admin
                 && pesquisa.IdFpgto == 0
                 && pesquisa.DataPgto == null
                 && pesquisa.IdConta == 0
-                && pesquisa.Cheque == null)
+                && pesquisa.Cheque == null
+                && pesquisa.CadastradoEm == null)
             {
                 throw new ArgumentException("Nenhum parâmetro selecionado para pesquisa");
             }
@@ -51,6 +53,7 @@ namespace Avanhandava.Domain.Service.Admin
                          && (pesquisa.DataPgto == null || p.DataPgto == pesquisa.DataPgto)
                          && (pesquisa.IdConta == 0 || p.IdConta == pesquisa.IdConta)
                          && (pesquisa.Cheque == null || p.Cheque == pesquisa.Cheque)
+                         && (pesquisa.CadastradoEm == null || EntityFunctions.TruncateTime(a.CadastradoEm) == pesquisa.CadastradoEm)
                          )
                          select p);
 

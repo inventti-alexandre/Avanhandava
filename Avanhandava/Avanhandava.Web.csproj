@@ -250,6 +250,7 @@
     <Content Include="Areas\Controle\Views\PesquisaAgendamento\Index.cshtml" />
     <Content Include="Areas\Controle\Views\PesquisaAgendamento\PesquisaParcelas.cshtml" />
     <Content Include="Areas\Controle\Views\Debito\Index.cshtml" />
+    <Content Include="Areas\Controle\Views\Debito\DebitosLancados.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

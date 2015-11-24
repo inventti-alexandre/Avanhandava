@@ -45,9 +45,20 @@ namespace Avanhandava.Areas.Controle.Controllers
             return View("Incluir", credito);
         }
 
+        // GET: Controle/Credito/Create
+        public ActionResult Incluir(Credito credito)
+        {
+            if (credito == null)
+	        {
+                credito = new Credito { Ativo = true };
+	        }
+
+            return View(credito);
+        }
+
         // POST: Controle/Credito/Create
         [HttpPost]
-        public ActionResult Incluir(Credito credito)
+        public ActionResult Incluir(Credito credito, FormCollection collection)
         {
             try
             {
