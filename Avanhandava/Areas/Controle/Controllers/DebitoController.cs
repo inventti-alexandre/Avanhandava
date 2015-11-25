@@ -1,4 +1,5 @@
 ﻿using Avanhandava.Common;
+using Avanhandava.Domain.Abstract;
 using Avanhandava.Domain.Models.Admin;
 using Avanhandava.Domain.Service.Admin;
 using System;
@@ -6,21 +7,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 
 namespace Avanhandava.Areas.Controle.Controllers
 {
     [Authorize]
-    public class DebitoController : Controller
+    public class DebitoController : Controller       
     {
         // GET: Controle/Debito
         public ActionResult Index()
         {
-            return View(new DebitoDiretoModel { Referencia = DateTime.Today.Date, Vencto = DateTime.Today.Date, Compensado = true });
+            var parcelas = new PesquisaService().Pesquisar(new PesquisaAgendamentoModel
+            {
+                CadastradoEm = DateTime.Today.Date
+            });
+
+            return View(parcelas);
         }
 
-        // POST: Controle/Debito
+        // GET: Controle/Debito/Incluir
+        public ActionResult Incluir()
+        {
+            var empresa = new EmpresaService().Listar().Where(x => x.Ativo == true).OrderBy(x => x.Fantasia).FirstOrDefault();
+
+            return View(new DebitoDiretoModel
+            {
+                Referencia = DateTime.Today.Date,
+                Vencto = DateTime.Today.Date,
+                Compensado = true,
+                IdEmpresa = empresa == null ? 0 : empresa.Id
+            });
+        }
+
+        // POST: Controle/Debito/Incluir
         [HttpPost]
-        public ActionResult Index(DebitoDiretoModel model)
+        public ActionResult Incluir(DebitoDiretoModel model)
         {
             model.AlteradoPor = Identification.IdUsuario;
             TryUpdateModel(model);
@@ -34,15 +55,25 @@ namespace Avanhandava.Areas.Controle.Controllers
             return View(model);
         }
 
-        public PartialViewResult DebitosLancados(int idEmpresa)
+        // GET: Controle/Debito/Excluir
+        public ActionResult Excluir(int? id)
         {
-            var parcelas = new PesquisaService().Pesquisar(new PesquisaAgendamentoModel
+            if (id == null)
             {
-                IdEmpresa = idEmpresa,
-                CadastradoEm = DateTime.Today.Date
-            });
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
 
-            return PartialView("DebitosLancados", parcelas);
+            var parcela = 
+            if (true)
+            {
+                
+            }
+        }
+
+        // POST: Controle/Debito/Excluir
+        public ActionResult Excluir(int id)
+        {
+
         }
     }
 }

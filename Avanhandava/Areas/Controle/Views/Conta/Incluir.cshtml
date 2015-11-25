@@ -57,12 +57,9 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Incluir" class="btn btn-primary" />
+                <input type="submit" value="Incluir" class="btn btn-primary" /> |
+                @Html.ActionLink("Voltar", "Index", new { idEmpresa = Model.IdEmpresa })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Voltar", "Index", new { idEmpresa = Model.IdEmpresa })
-</div>

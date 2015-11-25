@@ -32,7 +32,7 @@ namespace Avanhandava.Domain.Models.Admin
         public int? IdFpgto { get; set; }
 
         [Display(Name="Data do pagamento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? DataPgto { get; set; }
 
         [Display(Name="Conta")]
