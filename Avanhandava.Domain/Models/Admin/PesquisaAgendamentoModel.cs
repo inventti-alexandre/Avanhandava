@@ -1,10 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Avanhandava.Domain.Models.Admin
 {
+    public enum Situacao
+    {
+        [Description("")]
+        Todos,
+        [Description("PAGOS")]
+        Pagos,
+        [Description("EM ABERTO")]
+        EmAberto
+    }
+
     public class PesquisaAgendamentoModel
     {
         [Display(Name = "Empresa")]
@@ -61,6 +72,12 @@ namespace Avanhandava.Domain.Models.Admin
 
         [Display(Name = "Cadastrado em")]
         public DateTime? CadastradoEm { get; set; }
+
+        [Display(Name = "Cadastrado a partir de")]
+        public DateTime? CadastradoAPartirDe { get; set; }
+
+        [Display(Name = "Situação")]
+        public Situacao Situacao { get; set; }
 
         //public bool Compensado { get; set; }
 

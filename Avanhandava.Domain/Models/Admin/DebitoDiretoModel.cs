@@ -9,6 +9,8 @@ namespace Avanhandava.Domain.Models.Admin
 {
     public class DebitoDiretoModel
     {
+        public int Id { get; set; }
+
         [Display(Name = "Empresa")]
         [Range(1, double.MaxValue, ErrorMessage = "Selecione a empresa")]
         public int IdEmpresa { get; set; }

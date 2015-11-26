@@ -2,7 +2,7 @@
 using Avanhandava.Domain.Repository;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Avanhandava.Domain.Service.Admin
@@ -28,7 +28,9 @@ namespace Avanhandava.Domain.Service.Admin
                 && pesquisa.DataPgto == null
                 && pesquisa.IdConta == 0
                 && pesquisa.Cheque == null
-                && pesquisa.CadastradoEm == null)
+                && pesquisa.CadastradoEm == null
+                && pesquisa.CadastradoAPartirDe == null
+                && pesquisa.Situacao == Situacao.Todos)
             {
                 throw new ArgumentException("Nenhum parâmetro selecionado para pesquisa");
             }
@@ -53,7 +55,11 @@ namespace Avanhandava.Domain.Service.Admin
                          && (pesquisa.DataPgto == null || p.DataPgto == pesquisa.DataPgto)
                          && (pesquisa.IdConta == 0 || p.IdConta == pesquisa.IdConta)
                          && (pesquisa.Cheque == null || p.Cheque == pesquisa.Cheque)
-                         && (pesquisa.CadastradoEm == null || EntityFunctions.TruncateTime(a.CadastradoEm) == pesquisa.CadastradoEm)
+                         && (pesquisa.CadastradoEm == null || DbFunctions.TruncateTime(a.CadastradoEm) == pesquisa.CadastradoEm)
+                         && (pesquisa.CadastradoAPartirDe == null || DbFunctions.TruncateTime(a.CadastradoEm) >= pesquisa.CadastradoAPartirDe)
+                         && ((pesquisa.Situacao == Situacao.Pagos && p.Cheque > 0) 
+                            || (pesquisa.Situacao == Situacao.EmAberto && p.Cheque == 0)
+                            || (pesquisa.Situacao == Situacao.Todos && p.Cheque >=0))
                          )
                          select p);
 

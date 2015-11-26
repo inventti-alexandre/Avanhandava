@@ -14,12 +14,19 @@ namespace Avanhandava.Areas.Controle.Controllers
     [Authorize]
     public class DebitoController : Controller       
     {
+        IBaseService<Conta> _conta;
+
+        public DebitoController(IBaseService<Conta> conta)
+        {
+            _conta = conta;
+        }
+
         // GET: Controle/Debito
         public ActionResult Index()
         {
             var parcelas = new PesquisaService().Pesquisar(new PesquisaAgendamentoModel
             {
-                CadastradoEm = DateTime.Today.Date
+                CadastradoAPartirDe = getDataMinima()
             });
 
             return View(parcelas);
@@ -63,17 +70,26 @@ namespace Avanhandava.Areas.Controle.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var parcela = 
-            if (true)
-            {
-                
-            }
+            // TODO: parei aki
+            return View();
         }
 
         // POST: Controle/Debito/Excluir
         public ActionResult Excluir(int id)
         {
+            return View();
+        }
 
+        private DateTime getDataMinima()
+        {
+            var dataMinima = _conta.Listar().Where(x => x.Ativo == true).Min(x => x.SaldoData);
+            
+            if (dataMinima == null)
+            {
+                return DateTime.Today.Date;
+            }
+
+            return dataMinima;
         }
     }
 }

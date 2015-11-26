@@ -16,10 +16,22 @@ namespace Avanhandava.Areas.Controle.Controllers
 
         // POST: Controle/PesquisaAgendamento
         [HttpPost]
-        public ActionResult Index(PesquisaAgendamentoModel model)
+        public ActionResult Index(PesquisaAgendamentoModel model, int idSituacao)
         {
             try
             {
+                if (idSituacao == 0)
+                {
+                    model.Situacao = Situacao.Todos;
+                }
+                else if (idSituacao == 1)
+                {
+                    model.Situacao = Situacao.Pagos;
+                }
+                else
+                {
+                    model.Situacao = Situacao.EmAberto;
+                }
                 var service = new PesquisaService();
                 model.Parcelas = service.Pesquisar(model);
 

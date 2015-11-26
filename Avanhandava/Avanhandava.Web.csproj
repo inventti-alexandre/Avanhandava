@@ -154,7 +154,9 @@
     <Compile Include="Common\BindGrupoCustoHelper.cs" />
     <Compile Include="Common\BindItemCustoHelper.cs" />
     <Compile Include="Common\BindPgtoHelper.cs" />
+    <Compile Include="Common\BindSituacaoParcelaHelper.cs" />
     <Compile Include="Common\BindTipoCreditoHelper.cs" />
+    <Compile Include="Common\EnumDescription.cs" />
     <Compile Include="Common\Identification.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
